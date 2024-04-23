@@ -8,6 +8,6 @@ class AccountPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List pages = [const AccountLogOut(), const AccountLogIn()];
-    return pages[0];
+    return pages[1];
   }
 }

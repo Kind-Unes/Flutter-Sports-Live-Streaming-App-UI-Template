@@ -5,7 +5,7 @@ import 'package:video_stream_clone/src/components/custom_button.dart';
 import 'package:video_stream_clone/src/core/app_color.dart';
 import 'package:video_stream_clone/src/core/app_const.dart';
 import 'package:video_stream_clone/src/core/app_extension.dart';
-import 'package:video_stream_clone/src/helper/router.dart';
+import 'package:video_stream_clone/src/presentation/privacy_policy/helper/router.dart';
 import 'package:video_stream_clone/src/presentation/Auth/signin/signin_page.dart';
 
 class SignUpPage extends StatefulWidget {

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,8 +9,10 @@ import 'package:video_stream_clone/src/bloc/drawer_cubit.dart';
 import 'package:video_stream_clone/src/core/app_color.dart';
 import 'package:video_stream_clone/src/core/app_const.dart';
 import 'package:video_stream_clone/src/core/app_extension.dart';
-import 'package:video_stream_clone/src/helper/router.dart';
+import 'package:video_stream_clone/src/presentation/privacy_policy/helper/router.dart';
 import 'package:video_stream_clone/src/presentation/Auth/signin/signin_page.dart';
+import 'package:video_stream_clone/src/presentation/dashboard/dashboard_page.dart';
+import 'package:video_stream_clone/src/presentation/profile/profile_page.dart';
 
 class CustomDrawer extends StatefulWidget {
   const CustomDrawer({
@@ -40,76 +43,81 @@ class _CustomDrawerState extends State<CustomDrawer> {
           child: ListView(
             padding: EdgeInsets.zero,
             children: [
-              Container(
-                  alignment: Alignment.center,
-                  padding: EdgeInsets.only(left: 15.w, right: 9.w),
-                  height: 140.h,
-                  decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 88, 76, 76)),
-                  width: double.infinity,
-                  child: Row(
-                    children: [
-                      SizedBox(
-                        height: 70.h,
-                        width: 70.w,
-                        child: ClipRRect(
-                            borderRadius: BorderRadius.circular(2300),
-                            child: Image.asset(
-                              "assets/icons/ic_tkds.jpg",
-                              fit: BoxFit.fill,
-                            )),
-                      ),
-                      SizedBox(width: 10.w),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SizedBox(
-                            height: 40.h,
-                            width: 140.w,
-                            child: Marquee(
-                              text:
-                                  'TKDS SPORTS                                 ',
-                              style: const TextStyle(
-                                  fontSize: 18,
-                                  fontFamily: fontFamily,
-                                  color: Colors.white),
-                              scrollAxis: Axis.horizontal,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              blankSpace: 20.0,
-                              velocity: 100.0,
-                              pauseAfterRound: const Duration(seconds: 0),
-                              accelerationDuration: const Duration(seconds: 3),
-                              accelerationCurve: Curves.linear,
-                              decelerationDuration:
-                                  const Duration(milliseconds: 1000),
-                              decelerationCurve: Curves.easeOut,
-                              showFadingOnlyWhenScrolling: true,
-                            ),
-                          ),
-                          Transform.translate(
-                            offset: Offset(0, -12.h),
-                            child: Text(
-                              "Watch Now",
-                              style: TextStyle(
-                                  fontFamily: fontFamily,
-                                  fontSize: 12,
-                                  color: Colors.grey[350]),
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Transform.translate(
-                        offset: Offset(0, -6.h),
-                        child: const Icon(
-                          FontAwesomeIcons.chevronDown,
-                          size: 13,
-                          color: Colors.white,
+              GestureDetector(
+                onTap: () => Navigator.push(
+                    context, CustomRouter(widget: const DashBoardPage())),
+                child: Container(
+                    alignment: Alignment.center,
+                    padding: EdgeInsets.only(left: 15.w, right: 9.w),
+                    height: 140.h,
+                    decoration: const BoxDecoration(
+                        color: Color.fromARGB(255, 88, 76, 76)),
+                    width: double.infinity,
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 70.h,
+                          width: 70.w,
+                          child: ClipRRect(
+                              borderRadius: BorderRadius.circular(2300),
+                              child: Image.asset(
+                                "assets/icons/ic_tkds.jpg",
+                                fit: BoxFit.fill,
+                              )),
                         ),
-                      ),
-                    ],
-                  )),
+                        SizedBox(width: 10.w),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 40.h,
+                              width: 140.w,
+                              child: Marquee(
+                                text:
+                                    'TKDS SPORTS                                 ',
+                                style: const TextStyle(
+                                    fontSize: 18,
+                                    fontFamily: fontFamily,
+                                    color: Colors.white),
+                                scrollAxis: Axis.horizontal,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                blankSpace: 20.0,
+                                velocity: 100.0,
+                                pauseAfterRound: const Duration(seconds: 0),
+                                accelerationDuration:
+                                    const Duration(seconds: 3),
+                                accelerationCurve: Curves.linear,
+                                decelerationDuration:
+                                    const Duration(milliseconds: 1000),
+                                decelerationCurve: Curves.easeOut,
+                                showFadingOnlyWhenScrolling: true,
+                              ),
+                            ),
+                            Transform.translate(
+                              offset: Offset(0, -12.h),
+                              child: Text(
+                                "Watch Now",
+                                style: TextStyle(
+                                    fontFamily: fontFamily,
+                                    fontSize: 12,
+                                    color: Colors.grey[350]),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        Transform.translate(
+                          offset: Offset(0, -6.h),
+                          child: const Icon(
+                            FontAwesomeIcons.chevronDown,
+                            size: 13,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    )),
+              ),
               SizedBox(
                 height: 10.h,
               ),
@@ -184,10 +192,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   : DrawerTile(
                       isCurrent: indexState == 07,
                       onTap: () {
-                        context.read<DrawerCubit>().updateIndex(7);
-                        context.read<BottomNavBarCubit>().updateIndex(8);
-
-                        context.pop();
+                        Navigator.push(context,
+                            CustomRouter(widget: const DashBoardPage()));
                       },
                       imageIcon: "assets/icons/ic_dashboard.png",
                       title: 'Dashborad',
@@ -197,10 +203,8 @@ class _CustomDrawerState extends State<CustomDrawer> {
                   : DrawerTile(
                       isCurrent: indexState == 08,
                       onTap: () {
-                        context.read<DrawerCubit>().updateIndex(5);
-                        context.read<BottomNavBarCubit>().updateIndex(9);
-
-                        context.pop();
+                        Navigator.push(
+                            context, CustomRouter(widget: const ProfilePage()));
                       },
                       imageIcon: "assets/icons/ic_profile.png",
                       title: 'Profile',
