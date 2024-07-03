@@ -20,4 +20,9 @@ This repository contains a comprehensive UI template for a sports video streamin
 Ask For The Full Version VIA: [hellalet.younes@gmail.com](mailto:hellalet.younes@gmail.com)
 
 ## License
-This project is licensed under the **MIT** License.
+This project is licensed under the **MIT** License. Check LICENSE.MD
+
+## Security
+Please Refer to SECURITY.MD For More Info
+
+Thank you.
