@@ -14,7 +14,7 @@ This repository contains a comprehensive UI template for a sports video streamin
 - **Radio, Live Streaming, Authentication Screens and more**
 
 # Examine
-
+![App Screenshot](Screenshot%202024-07-03%20143840.png)
 
 ## Full Version
 Ask For The Full Version VIA: [hellalet.younes@gmail.com](mailto:hellalet.younes@gmail.com)
